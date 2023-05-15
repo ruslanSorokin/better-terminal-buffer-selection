@@ -1,6 +1,6 @@
-# better-terminal-buffer-selection README
+# accessible-buffer-copy README
 
-This is the README for your extension "better-terminal-buffer-selection". After writing up a brief description, we recommend including the following sections.
+This is the README for your extension "accessible-buffer-copy". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
