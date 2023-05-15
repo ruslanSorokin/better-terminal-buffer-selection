@@ -1,6 +1,6 @@
 {
-  "name": "better-terminal-buffer-selection",
-  "displayName": "Better terminal buffer selection",
+  "name": "accessible-buffer-copy",
+  "displayName": "Better accessible buffer copy behaviour",
   "description": "",
   "version": "0.0.1",
   "engines": {
