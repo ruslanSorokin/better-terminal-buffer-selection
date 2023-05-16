@@ -1,14 +1,31 @@
 {
   "name": "accessible-buffer-copy",
   "displayName": "Better accessible buffer copy behaviour",
-  "description": "",
-  "version": "0.0.1",
+  "description": "Fix strange behavior when copy paste from terminal accessible buffer mode by replacing non-breaking spaces with regular ones",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.78.0"
   },
+  "publisher": "ruslanSorokin",
   "license": "GPL-3.0",
+  "keywords": [
+    "terminal",
+    "accessible buffer",
+    "terminal text extraction"
+  ],
+  "repository": {
+    "url": "https://github.com/ruslanSorokin/vscode-accessible-buffer-copy"
+  },
   "categories": [
+    "Keymaps",
     "Other"
+  ],
+  "author": {
+    "email": "strawberryladder@gmail.com",
+    "name": "Ruslan Sorokin"
+  },
+  "extensionKind": [
+    "workspace"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
