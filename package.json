@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "better-terminal-buffer-selection.helloWorld",
-        "title": "Hello World"
+        "command": "abcopy.clipboardCopyAction",
+        "title": "Copy for accessible buffer"
       }
     ]
   },
