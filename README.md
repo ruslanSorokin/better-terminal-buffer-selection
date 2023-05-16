@@ -1,71 +1,49 @@
-# accessible-buffer-copy README
+# TL;DR
 
-This is the README for your extension "accessible-buffer-copy". After writing up a brief description, we recommend including the following sections.
+Fix strange behavior when copy paste from terminal accessible buffer mode by replacing non-breaking spaces with usual ones.
 
-## Features
+# Summary
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension provides facade-like functionality for the convenience of working with accessible buffer terminal.
 
-For example if there is an image subfolder under your extension project workspace:
+By some reasons when you enter an accessible buffer mode for terminal, all whitespaces are replaced with non-breaking ones, so if you try to copy some command from there and paste it to the terminal the command will fail.
 
-\!\[feature X\]\(images/feature-x.png\)
+I believe that there are objective for doing this. However, it bothers a bit, if you just want to copy and paste some command from a man page and etc. This extension makes everything copied from accessible buffer mode valid for insertion.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+As I said before extension provides facade-like functionality. By which I mean that you can achieve almost the same behavior with other extensions that provide replacement rules for the clipboard. However, I wanted it to be a separate extension as it is easier to fix the problem by using a separate extension.
 
-## Requirements
+## Quick start
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+1. Install the extension
+2. Enable the extension
+3. Set a new shortcut for the key you use for copying with the following when expression `terminalAccessibleBufferFocus`
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### Windows
+```json
+    {
+        "key": "ctrl+c",
+        "command": "abcopy.clipboardCopyAction",
+        "when": "terminalAccessibleBufferFocus"
+    }
+```
 
-For example:
+### MacOS
+```json
+    {
+        "key": "cmd+c",
+        "command": "abcopy.clipboardCopyAction",
+        "when": "terminalAccessibleBufferFocus"
+    }
+```
 
-This extension contributes the following settings:
+### Linux
+```json
+    {
+        "key": "ctrl+shift+c",
+        "command": "abcopy.clipboardCopyAction",
+        "when": "terminalAccessibleBufferFocus"
+    }
+```
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Now you've got a custom copy method, which is activated only when you are in the terminal accessible buffer mode.
