@@ -2,25 +2,36 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
+type ReplacePair = {
+	from: RegExp
+	to: string
+};
+
+const nonBreakingSpace: ReplacePair = {
+	from: /\u00A0/gu,
+	to: ' '
+};
+
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+	console.log("activation");
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "accessible-buffer-copy" is now active!');
+	vscode.commands.registerCommand('abcopy.clipboardCopyAction', async () => {
+		await vscode.commands.executeCommand('editor.action.clipboardCopyAction');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('accessible-buffer-copy.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Better accessible buffer copy behaviour!');
+		// Get the contents of the clipboard
+		const text = await vscode.env.clipboard.readText();
+
+		const replacedNonBreakingSpaces = text.replace(
+			nonBreakingSpace.from,
+			nonBreakingSpace.to
+		);
+
+		// Copy the new text to the clipboard
+		await vscode.env.clipboard.writeText(replacedNonBreakingSpaces);
 	});
-
-	context.subscriptions.push(disposable);
 }
 
 // This method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { console.log("deactivation"); }
