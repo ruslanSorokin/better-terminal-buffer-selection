@@ -7,3 +7,26 @@ repos:
       - id: end-of-file-fixer
       - id: check-yaml
       - id: detect-private-key
+
+  # pre-commit install --hook-type commit-msg
+  - repo: https://github.com/compilerla/conventional-pre-commit
+    rev: v2.1.1
+    hooks:
+      - id: conventional-pre-commit
+        stages: [commit-msg]
+        args:
+          [
+            build,
+            chore,
+            ci,
+            deploy,
+            dev,
+            docs,
+            feat,
+            fix,
+            perf,
+            refactor,
+            revert,
+            style,
+            test,
+          ]
