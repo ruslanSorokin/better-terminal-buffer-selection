@@ -1,6 +1,6 @@
 # TL;DR
 
-Fix strange behavior when copy paste from terminal accessible buffer mode by replacing non-breaking spaces with usual ones.
+Fix strange behavior when copy paste from terminal accessible buffer mode by replacing non-breaking spaces with regular ones.
 
 # Summary
 
